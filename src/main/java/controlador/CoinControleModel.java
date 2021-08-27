@@ -1,22 +1,27 @@
 package controlador;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 import modelo.Coin;
 
-public class CoinControle {
+public  class CoinControleModel {
 
 	EntityManagerFactory entityManagerFactory;
 	EntityManager entityManager;
 
-	public CoinControle() {
+	public CoinControleModel() {
 		entityManagerFactory = Persistence.createEntityManagerFactory("binancecoin");
 		entityManager = entityManagerFactory.createEntityManager();
+	}
+	
+	public void converteSalvar(Coin _coin1, Coin _coin2) {
+		entityManager.getTransaction().begin();
+		entityManager.merge(_coin2);
+		entityManager.getTransaction().commit();
+		entityManagerFactory.close();
+
 	}
 
 	public void salvar(Coin _coin) {
@@ -34,16 +39,15 @@ public class CoinControle {
 		entityManagerFactory.close();
 
 	}
-
-	public List<Coin> listarTodos() {
-		entityManager.getTransaction().begin();
-		Query consulta = entityManager.createQuery("Select coin from Coin coin");
-		@SuppressWarnings("unchecked")
-		List<Coin> resultList = consulta.getResultList();
-		List<Coin> clientes = resultList;
-		entityManager.getTransaction().commit();
-		entityManagerFactory.close();
-		return clientes;
-
-	}
+	/*
+	 * public List<Btc> listarTodos() { entityManager.getTransaction().begin();
+	 * Query consulta = entityManager.createQuery("Select btc from Btc btc");
+	 * 
+	 * @SuppressWarnings("unchecked") List<Btc> resultList =
+	 * consulta.getResultList(); List<Btc> valores = resultList;
+	 * entityManager.getTransaction().commit(); entityManagerFactory.close(); return
+	 * valores;
+	 * 
+	 * }
+	 */
 }

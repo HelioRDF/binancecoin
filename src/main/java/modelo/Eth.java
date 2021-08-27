@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "BitCoin")
-public class Btc extends Coin{
+@Table(name = "Ethereum")
+public class Eth extends Coin{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,16 +24,14 @@ public class Btc extends Coin{
 	@Column
 	LocalDateTime registro;
 
-	public Btc() {
+	public Eth() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Btc(BigDecimal valor, LocalDateTime registro) {
+	public Eth(BigDecimal valor, LocalDateTime registro) {
 		super();
 		this.valor = valor;
 		this.registro = registro;
 	}
-	
-
 }

@@ -1,6 +1,5 @@
 package modelo;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -11,29 +10,41 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "BitCoin")
-public class Btc extends Coin{
+@Table(name = " Smooth_Love_Potion")
+public class Slp extends Coin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column
-	private BigDecimal valor;
+	private String valorSlpEth;
 
 	@Column
 	LocalDateTime registro;
 
-	public Btc() {
+	public Slp() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Btc(BigDecimal valor, LocalDateTime registro) {
+	public Slp(String valorSlpEth, LocalDateTime registro) {
 		super();
-		this.valor = valor;
+		this.valorSlpEth = valorSlpEth;
 		this.registro = registro;
 	}
-	
+
+	/**
+	 * @return the valorSlpEth
+	 */
+	public String getValorSlpEth() {
+		return valorSlpEth;
+	}
+
+	/**
+	 * @param valorSlpEth the valorSlpEth to set
+	 */
+	public void setValorSlpEth(String valorSlpEth) {
+		this.valorSlpEth = valorSlpEth;
+	}
 
 }
