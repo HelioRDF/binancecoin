@@ -1,4 +1,4 @@
-package Configuracao;
+package configuracao;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +20,13 @@ public class Selenium {
 	}
 
 	public static void fechar(WebDriver driver) {
+		driver.close();
+		driver.quit();
+		Tempo.aguardarEmSegundos(false, 300, null);
+
+	}
+
+	public static void fechar(WebDriver driver, int aguardar) {
 		driver.close();
 		driver.quit();
 		Tempo.aguardarEmSegundos(false, 300, null);

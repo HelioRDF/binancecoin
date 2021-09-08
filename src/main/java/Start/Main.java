@@ -1,31 +1,33 @@
-package Start;
+package start;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.openqa.selenium.WebDriver;
 
-import Configuracao.Selenium;
-import Logica.MonitorCrypto;
+import configuracao.Selenium;
 import controlador.AxsControle;
 import controlador.BnbControle;
 import controlador.BtcControle;
 import controlador.EthControle;
 import controlador.LtcControle;
+import controlador.MboxControle;
 import controlador.RvnControle;
 import controlador.ShibControle;
 import controlador.SlpControle;
+import logica.MonitorCrypto;
 import modelo.Axs;
 import modelo.Bnb;
 import modelo.Btc;
 import modelo.Eth;
 import modelo.Ltc;
+import modelo.Mbox;
 import modelo.Rvn;
 import modelo.Shib;
 import modelo.Slp;
 import util.Tempo;
 
-public class Main {
+public class Main {/*
 	public static void main(String[] args) {
 
 		Thread t1 = new Thread(new Runnable() {
@@ -167,6 +169,23 @@ public class Main {
 			}
 		});
 
+		Thread t9 = new Thread(new Runnable() {
+			public void run() {
+				String link = "https://www.binance.com/pt-BR/trade/MBOX_BTC?theme=dark&type=spot";
+				boolean loop = true;
+
+				while (loop) {
+					WebDriver driver = Selenium.configWebDriver(link);
+					Mbox mbox = new Mbox();
+					MboxControle mboxControl = new MboxControle();
+					String valorAtual = MonitorCrypto.capturarValor(driver);
+					mbox = new Mbox(valorAtual, LocalDateTime.now());
+					mboxControl.salvar(mbox);
+					Selenium.fechar(driver, 90);
+				}
+			}
+		});
+
 		t1.start();
 		Tempo.aguardarEmSegundos(false, 15, null);
 		t2.start();
@@ -182,5 +201,7 @@ public class Main {
 		t7.start();
 		Tempo.aguardarEmSegundos(false, 15, null);
 		t8.start();
-	}
+		Tempo.aguardarEmSegundos(false, 15, null);
+		t9.start();
+	}*/
 }
